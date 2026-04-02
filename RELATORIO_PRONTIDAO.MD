@@ -123,4 +123,6 @@ Eu, Luis Eduardo Carneiro Miranda, declaro que auditei manualmente as ferramenta
 ---
 **Data de Entrega:** 01/04/2026
 
-Observacoes gerais e especificas: inserir texto com suas observacoes sobre aspectos outros que valem a pena considerar ou que voce identificou como necessarios a serem realizados no futuro. 
+Observações gerais e específicas: 
+- Considerar implementar testes automatizados adicionais para cobertura de qualidade de código em outros módulos que venham a ser desenvolvidos.
+- Pode ser interessante analisar a integração para um reforço extra na pipeline de CI/CD.
