@@ -115,7 +115,7 @@ All checks passed!
 
 ## 3. Evidência de Integração Contínua (CI)
 O pipeline automatizado foi executado com sucesso no GitHub Actions:
-- **Link da Action de Sucesso:** [COLE AQUI O LINK DO SEU GITHUB ACTIONS]
+- **Link da Action de Sucesso:** https://github.com/LuisMiranda10/eps-g17-buscador-osint/actions/runs/23877586744/job/69623838864
 
 ## 4. Declaração de Soberania Técnica (CISSP Domain 8)
 Eu, Luis Eduardo Carneiro Miranda, declaro que auditei manualmente as ferramentas e dependências deste projeto. Confirmo que o código gerado via IA (GitHub Copilot) passou pela minha revisão humana (*Human-in-the-loop*), garantindo que não há vazamento de segredos ou falhas lógicas críticas antes da migração para o ecossistema da PCDF.
