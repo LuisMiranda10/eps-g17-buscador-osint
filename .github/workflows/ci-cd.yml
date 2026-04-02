@@ -1,0 +1,49 @@
+name: Security & Quality
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  security-and-quality:
+    name: Ruff · Bandit · Safety
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: poetry
+          cache-dependency-path: poetry.lock
+
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          version: 2.1.3
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          installer-parallel: true
+
+      - name: Install dependencies
+        run: poetry install --no-interaction --no-ansi
+
+      - name: Upgrade pip (CVE hardening)
+        run: poetry run python -m pip install --upgrade "pip>=26"
+
+      - name: Ruff (lint)
+        run: poetry run ruff check .
+
+      - name: Ruff (format check)
+        run: poetry run ruff format --check .
+
+      - name: Bandit
+        run: poetry run bandit -r . -x ./.venv -ll
+
+      - name: Safety (dependency CVEs)
+        run: poetry run safety check

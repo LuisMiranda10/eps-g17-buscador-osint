@@ -1,0 +1,20 @@
+[project]
+name = "onboarding-devsecops"
+version = "0.1.0"
+description = "Relatório de Prontidão Técnica: Onboarding SecOps"
+authors = [
+    {name = "luiseduardocarneiro6@gmail.com"}
+]
+
+requires-python = ">=3.14"
+
+dependencies = [
+    "bandit (>=1.9.4,<2.0.0)",
+    "safety (>=3.7.0,<4.0.0)",
+    "ruff (>=0.15.8,<0.16.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
