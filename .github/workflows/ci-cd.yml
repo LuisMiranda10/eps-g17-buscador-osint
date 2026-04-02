@@ -44,16 +44,19 @@ jobs:
 
     - name: Run Bandit Security Audit
       run: |
+        echo "=== BANDIT SECURITY AUDIT ==="
         poetry run bandit main.py -f json
       continue-on-error: false
 
     - name: Run Ruff Code Quality Check
       run: |
+        echo "=== RUFF CODE QUALITY CHECK ==="
         poetry run ruff check .
       continue-on-error: false
 
     - name: Run pip-audit Dependency Scan
       run: |
+        echo "=== PIP-AUDIT VULNERABILITY SCAN ==="
         pip install pip-audit
         pip-audit
       continue-on-error: false
@@ -61,10 +64,15 @@ jobs:
     - name: Security Gate Summary
       if: success()
       run: |
-        echo "Pipeline Status: SUCCESS"
+        echo "✅ All security checks passed!"
+        echo "✅ Bandit: No vulnerabilities found"
+        echo "✅ Ruff: Code quality compliant"
+        echo "✅ pip-audit: No CVEs detected"
+        echo ""
+        echo "Pipeline Status: SUCCESS ✅"
 
     - name: Security Gate Failed
       if: failure()
       run: |
-        echo "Security checks FAILED!"
+        echo "❌ Security checks FAILED!"
         exit 1
